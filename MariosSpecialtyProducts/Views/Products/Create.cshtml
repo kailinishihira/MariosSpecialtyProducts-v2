@@ -1,0 +1,36 @@
+﻿@model MariosSpecialtyProducts.Models.Product
+
+@{
+    ViewData["Title"] = "Add Product";
+}
+
+<div class="banner">
+    <h1 class="title">Add a New Product</h1>
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="well">
+        <div class="form-group row">
+            <label class="col-md-2">Name of Product:</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Name, new {@class="form-control"})
+            </div>
+        </div>
+	    <div class="form-group row">
+            <label class="col-md-2">Cost:</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Cost, new {@class="form-control"})
+            </div>
+        </div>
+	    <div class="form-group row">
+            <label class="col-md-2">Country of Origin:</label>
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.CountryOfOrigin, new {@class="form-control"})
+            </div>
+        </div>
+        <input type="submit" value="Add" class="btn btn-default" />
+    </div>
+}
+
+<p class="back">@Html.ActionLink("Back", "Index")</p>

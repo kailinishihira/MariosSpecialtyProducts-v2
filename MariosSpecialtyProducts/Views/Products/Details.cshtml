@@ -1,0 +1,30 @@
+﻿@model MariosSpecialtyProducts.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="banner">
+    <h1 class="title">@Html.DisplayFor(model => model.Name) Details</h1>
+</div>
+
+<p class="crud">@Html.ActionLink("Edit", "Edit", new{ productId = Model.ProductId }) | @Html.ActionLink("Delete", "Delete", new{ productId = Model.ProductId })</p>
+<p class="back">@Html.ActionLink("Back to Products List", "Index")</p>
+
+<div class="well">
+    <h4>@Html.DisplayFor(model => model.Name)</h4>
+	<p>Cost: $@Html.DisplayFor(model => model.Cost)</p>
+    <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
+</div>
+
+
+<div class="well">
+    @foreach(var review in Model.Reviews)
+    {
+	    
+        <p class="reviews">Ratings: @Html.DisplayFor(model => review.Rating) stars</p>
+	    <p>Author: @Html.DisplayFor(model => review.Author)</p>
+	    <p>Review: @Html.DisplayFor(model => review.ContentBody)</p>
+    }
+</div>
+

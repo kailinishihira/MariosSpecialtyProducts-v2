@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using MariosSpecialtyProducts.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Diagnostics.Contracts;
 
 namespace MariosSpecialtyProducts.Controllers
 {
@@ -27,30 +30,33 @@ namespace MariosSpecialtyProducts.Controllers
         // GET: Reviews
         public ActionResult Index()
         {
+            var reviewList = reviewRepo.Reviews.ToList();
             return View();
         }
 
         // GET: Reviews/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int reviewId)
         {
-            return View();
+            var thisReview = reviewRepo.Reviews.Include(x => x.Product)
+                                       .FirstOrDefault(x => x.ReviewId == reviewId);
+            return View(thisReview);
         }
 
         // GET: Reviews/Create
-        public ActionResult Create()
+        public ActionResult Create(int productId)
         {
+            ViewBag.ProductId = new SelectList(reviewRepo.Products, "ProductId", "Name");
             return View();
         }
 
         // POST: Reviews/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Review review)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                reviewRepo.Save(review);
                 return RedirectToAction("Index");
             }
             catch
@@ -60,20 +66,20 @@ namespace MariosSpecialtyProducts.Controllers
         }
 
         // GET: Reviews/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int reviewId)
         {
-            return View();
+            var thisReview = reviewRepo.Reviews.FirstOrDefault(x => x.ReviewId == reviewId);
+            return View(thisReview);
         }
 
         // POST: Reviews/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Review review)
         {
             try
             {
-                // TODO: Add update logic here
-
+                reviewRepo.Edit(review);
                 return RedirectToAction("Index");
             }
             catch
@@ -83,20 +89,22 @@ namespace MariosSpecialtyProducts.Controllers
         }
 
         // GET: Reviews/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int reviewId)
         {
-            return View();
+            var thisReview = reviewRepo.Reviews.FirstOrDefault(x => x.ReviewId == reviewId);
+            return View(thisReview);
         }
 
         // POST: Reviews/Delete/5
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult DeleteConfirmation(int reviewId)
         {
+            Contract.Ensures(Contract.Result<ActionResult>() != null);
             try
             {
-                // TODO: Add delete logic here
-
+                var thisReview = reviewRepo.Reviews.FirstOrDefault(x => x.ReviewId == reviewId);
+                reviewRepo.Remove(thisReview);
                 return RedirectToAction("Index");
             }
             catch

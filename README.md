@@ -8,7 +8,7 @@
 ## Description
 
 
-_Styling inspired by []()._
+_Styling inspired by [Eataly](https://www.eataly.com/)._
 
 || Behavior  | Input  | Output  |
 |---|---|---|---|

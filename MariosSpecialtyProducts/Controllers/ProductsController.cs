@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MariosSpecialtyProducts.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace MariosSpecialtyProducts.Controllers
 {
@@ -25,19 +26,22 @@ namespace MariosSpecialtyProducts.Controllers
         }
 
             // GET: Products
-            public ActionResult Index()
+            public IActionResult Index()
         {
-            return View();
+            var productList = productRepo.Products.ToList();
+            return View(productList);
         }
 
         // GET: Products/Details/5
-        public ActionResult Details(int id)
+        public IActionResult Details(int productId)
         {
-            return View();
+            var thisProduct = productRepo.Products.Include(x => x.Reviews)
+                                         .FirstOrDefault(x => x.ProductId == productId);
+            return View(thisProduct);
         }
 
         // GET: Products/Create
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }
@@ -45,12 +49,11 @@ namespace MariosSpecialtyProducts.Controllers
         // POST: Products/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public IActionResult Create(Product product)
         {
             try
             {
-                // TODO: Add insert logic here
-
+                productRepo.Save(product);
                 return RedirectToAction("Index");
             }
             catch
@@ -60,21 +63,21 @@ namespace MariosSpecialtyProducts.Controllers
         }
 
         // GET: Products/Edit/5
-        public ActionResult Edit(int id)
+        public IActionResult Edit(int productId)
         {
-            return View();
+            var thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == productId);   
+            return View(thisProduct);
         }
 
         // POST: Products/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public IActionResult Edit(Product product)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                productRepo.Edit(product);
+                return RedirectToAction("Details", new { productId = product.ProductId });
             }
             catch
             {
@@ -83,20 +86,21 @@ namespace MariosSpecialtyProducts.Controllers
         }
 
         // GET: Products/Delete/5
-        public ActionResult Delete(int id)
+        public IActionResult Delete(int productId)
         {
-            return View();
+            var thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == productId);
+            return View(thisProduct);
         }
 
         // POST: Products/Delete/5
-        [HttpPost]
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public IActionResult DeleteConfirmation(int productId)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                var thisProduct = productRepo.Products.FirstOrDefault(x => x.ProductId == productId);
+                productRepo.Remove(thisProduct);
                 return RedirectToAction("Index");
             }
             catch

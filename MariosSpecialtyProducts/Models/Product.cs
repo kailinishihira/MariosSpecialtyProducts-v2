@@ -10,8 +10,11 @@ namespace MariosSpecialtyProducts.Models
     {
         [Key]
         public int ProductId { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Cost { get; set; }
+        [Required]
         public string CountryOfOrigin { get; set; }
 
         public virtual ICollection<Review> Reviews { get; set; }

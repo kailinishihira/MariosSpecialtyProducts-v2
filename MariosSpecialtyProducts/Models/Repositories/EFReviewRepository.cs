@@ -23,12 +23,10 @@ namespace MariosSpecialtyProducts.Models
         MariosSpecialtyProductsContext db = new MariosSpecialtyProductsContext();
 
         public IQueryable<Review> Reviews
-        {
-            get
-            {
-                return db.Reviews;
-            }
-        }
+        { get {return db.Reviews;} }
+
+		public IQueryable<Product> Products
+		{ get { return db.Products; } }
 
         public Review Edit(Review review)
         {
