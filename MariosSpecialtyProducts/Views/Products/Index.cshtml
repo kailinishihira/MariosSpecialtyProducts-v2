@@ -8,11 +8,12 @@
     <h1 class="title">Products</h1>
 </div>
 
-<div class="well">
-    @foreach(var product in Model)
-	{
-	    <p class="product">@Html.ActionLink((string)product.Name, "Details", new{ productId = product.ProductId}, new{ @id="products-list"})</p>
+<p class="add">@Html.ActionLink("Add New Product", "Create", new{ @id="add-link" })</p>
 
+
+    @foreach(var product in Model)
+	{   
+        <div class="well">
+	        <h4 class="product">@Html.ActionLink((string)product.Name, "Details", new{ productId = product.ProductId}, new{ @id="products-list"})</h4>
+        </div>
 	}
-	<p class="add">@Html.ActionLink("Add New Product", "Create", new{ @id="add-link" })</p>
-</div>

@@ -1,5 +1,19 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model MariosSpecialtyProducts.Models.Review
+
 @{
+    ViewData["Title"] = "Add Review";
 }
+
+<div class="banner">
+    <h1 class="title">Review Details</h1>
+</div>
+
+<p class="crud">@Html.ActionLink("Back", "Index") | @Html.ActionLink("Edit", "Edit", new{ reviewId = Model.ReviewId }) | @Html.ActionLink("Delete", "Delete", new{ reviewId = Model.ReviewId })</p>
+
+<div class="well">
+	<p>Product: @Html.ActionLink((string)Model.Product.Name, "Details", "Products", new{ productId = Model.ProductId})</p>
+    <p>Rating: @Html.DisplayFor(model => model.Rating) stars</p>
+	<p>By: @Html.DisplayFor(model => model.Author)</p>
+	<p>Review: @Html.DisplayFor(model => model.ContentBody)</p>
+</div>
+

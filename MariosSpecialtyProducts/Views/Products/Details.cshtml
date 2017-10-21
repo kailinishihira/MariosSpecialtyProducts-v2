@@ -17,14 +17,17 @@
     <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
 </div>
 
+<h3>Reviews</h3>
+<p>@Html.ActionLink("Add a review", "AddReview", "Reviews", new{productId = Model.ProductId })</p>
 
-<div class="well">
     @foreach(var review in Model.Reviews)
     {
-	    
-        <p class="reviews">Ratings: @Html.DisplayFor(model => review.Rating) stars</p>
-	    <p>Author: @Html.DisplayFor(model => review.Author)</p>
-	    <p>Review: @Html.DisplayFor(model => review.ContentBody)</p>
+        <div class="well">
+            <p class="reviews">Rating: @Html.DisplayFor(model => review.Rating) stars</p>
+    	    <p>By: @Html.DisplayFor(model => review.Author)</p>
+    	    <p>Review: @Html.DisplayFor(model => review.ContentBody)</p>
+	        <p>@Html.ActionLink("Edit", "Edit", "Reviews", new{ reviewId = review.ReviewId}) | @Html.ActionLink("Delete", "Delete", "Reviews", new{ reviewId = review.ReviewId})</p>
+	    </div>
     }
-</div>
+
 

@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    color: #613733;
 }
 
 /* Wrapping element */
@@ -35,3 +36,37 @@ textarea {
         display: none;
     }
 }
+
+.title {
+    text-align: center;
+    background-color: #ffffff;
+    opacity: 0.8;
+    margin-right: 20%;
+    margin-left: 20%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 60px;
+}
+
+.banner {
+    background-image: url("https://media.eataly.com/media/catalog/category/header_pastapantry15072.jpg");
+    background-size: cover;
+    padding-top: 11%;
+    padding-bottom: 12%;
+    background-repeat: no-repeat;
+}
+
+.well {
+    background-color: #E9E3D8;
+}
+
+.add {
+    text-align: center;
+}
+
+.navbar {
+    background-color: #613733;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+

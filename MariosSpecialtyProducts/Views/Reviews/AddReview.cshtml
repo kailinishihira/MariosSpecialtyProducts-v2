@@ -11,15 +11,8 @@
 
 @using (Html.BeginForm())
 {
+    @Html.HiddenFor(model => model.ProductId)
     <div class="well">
-
-	     <div class="form-group row">
-            <label class="col-md-3">Product to Review:</label>
-            <div class="col-md-9">
-                @Html.DropDownList("ProductId")
-            </div>
-        </div>
-	
         <div class="form-group row">
             <label class="col-md-3">Rating (1 - 5):</label>
             <div class="col-md-9">

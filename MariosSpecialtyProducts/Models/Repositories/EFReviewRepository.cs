@@ -42,11 +42,12 @@ namespace MariosSpecialtyProducts.Models
         }
 
         public Review Save(Review review)
-        {
+        {         
             db.Reviews.Add(review);
             db.SaveChanges();
             return review;
         }
+
         public void DeleteAll()
         {
             db.Reviews.RemoveRange(db.Reviews.ToList());

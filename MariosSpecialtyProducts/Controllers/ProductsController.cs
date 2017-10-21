@@ -51,15 +51,12 @@ namespace MariosSpecialtyProducts.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Product product)
         {
-            try
-            {
+			if (ModelState.IsValid)
+			{
                 productRepo.Save(product);
-                return RedirectToAction("Index");
+               
             }
-            catch
-            {
-                return View();
-            }
+			return RedirectToAction("Index");
         }
 
         // GET: Products/Edit/5
@@ -74,16 +71,12 @@ namespace MariosSpecialtyProducts.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Product product)
         {
-            try
-            {
+			if (ModelState.IsValid)
+			{
                 productRepo.Edit(product);
-                return RedirectToAction("Details", new { productId = product.ProductId });
             }
-            catch
-            {
-                return View();
-            }
-        }
+			return RedirectToAction("Details", new { productId = product.ProductId });
+		}
 
         // GET: Products/Delete/5
         public IActionResult Delete(int productId)

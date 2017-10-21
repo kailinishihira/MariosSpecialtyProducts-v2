@@ -31,4 +31,18 @@
     <Folder Include="Views\Reviews\" />
     <Folder Include="Views\Products\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="wwwroot\css\styles.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\images\banner1.svg" />
+    <Content Remove="wwwroot\images\banner2.svg" />
+    <Content Remove="wwwroot\images\banner3.svg" />
+    <Content Remove="wwwroot\images\banner4.svg" />
+    <Content Remove="wwwroot\images\chocolates.jpg" />
+    <Content Remove="Views\Home\About.cshtml" />
+    <Content Remove="Views\Home\Contact.cshtml" />
+    <Content Remove="wwwroot\css\styles.css" />
+    <Content Remove="wwwroot\images\random-products.jpg" />
+  </ItemGroup>
 </Project>

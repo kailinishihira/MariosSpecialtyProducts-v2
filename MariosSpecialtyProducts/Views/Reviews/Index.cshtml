@@ -3,3 +3,19 @@
 @{
     ViewData["Title"] = "Reviews";
 }
+
+<div class="banner">
+    <h1 class="title">Reviews</h1>
+</div>
+
+<p class="add-link">@Html.ActionLink("Add New Review", "Create")</p>
+
+
+@foreach(var review in Model)
+{
+    <div class="well">
+	    <p>@Html.ActionLink((string)review.Author, "Details", new{ reviewId = review.ReviewId })</p>
+	    <p>@Html.DisplayFor(model => review.ContentBody)</p>
+        <p>@Html.DisplayFor(model => review.Product.Name)</p>        
+    </div>
+}

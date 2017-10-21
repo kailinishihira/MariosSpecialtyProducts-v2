@@ -42,9 +42,9 @@ namespace MariosSpecialtyProducts.Models
         }
 
         public Product Save(Product product)
-        {
+        {   
             db.Products.Add(product);
-            db.SaveChanges();
+            db.SaveChanges();    
             return product;
         }
 
