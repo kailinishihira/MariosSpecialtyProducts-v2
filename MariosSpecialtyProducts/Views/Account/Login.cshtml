@@ -5,15 +5,26 @@
     ViewData["Title"] = "Log In";
 }
 
-<h2>Log in with your account</h2>
+<h1 class="account-title">Log in with your account</h1>
 <hr />
-@using (Html.BeginForm())
-{
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
 
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
+<div class="well">  
+    @using (Html.BeginForm())
+    {
+	    <div class="form-group row">
+            <label class="col-md-3">Email:</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(m => m.Email, new{@class="form-control"})
+            </div>
+	    </div>
 
-    <input type="submit" value="Log in" class="btn btn-default" />
-}
+	    <div class="form-group row">
+            <label class="col-md-3">Password:</label>
+            <div class="col-md-9">
+                @Html.PasswordFor(m => m.Password, new{@class="form-control"})
+            </div>
+        </div>
+
+        <input type="submit" value="Log in" class="btn btn-default" />
+    }
+</div>

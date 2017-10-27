@@ -48,6 +48,14 @@ textarea {
     font-size: 60px;
 }
 
+.account-title {
+    text-align: center;
+    background-color: #ffffff;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 60px;
+}
+
 .banner {
     background-image: url("https://media.eataly.com/media/catalog/category/header_pastapantry15072.jpg");
     background-size: cover;
@@ -72,4 +80,8 @@ textarea {
 
 .hide-well {
     display: none;
+}
+
+.logout-button {
+    float: right;
 }

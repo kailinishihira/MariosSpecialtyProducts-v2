@@ -66,7 +66,7 @@ namespace MariosSpecialtyProducts.Controllers
             }
             else
             {
-                return View();
+                return View("Error");
             }
         }
 

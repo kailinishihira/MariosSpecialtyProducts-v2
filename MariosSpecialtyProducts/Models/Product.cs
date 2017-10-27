@@ -47,5 +47,10 @@ namespace MariosSpecialtyProducts.Models
             db.SaveChanges();
         }
 
+        //public int AverageRating()
+        //{
+            
+        //}
+
     }
 }

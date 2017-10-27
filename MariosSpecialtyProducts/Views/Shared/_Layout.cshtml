@@ -36,11 +36,12 @@
 
                     @if (User.Identity.IsAuthenticated)
 					{
-                        <li><p class="navbar-text">Hello @User.Identity.Name!</p></li>
 						<li><a asp-area="" asp-controller="Products" asp-action="Create">Add New Products</a></li>
+                        <li><p class="navbar-text">Hello @User.Identity.Name!</p></li>
+						
 					    using (Html.BeginForm("LogOff", "Account"))
 						{
-					        <li><input type="submit" class="btn btn-default" value="Log out" /></li>
+					        <li><input type="submit" class="btn btn-default logout-button" value="Log out" /></li>
 						}
 					}
                     else

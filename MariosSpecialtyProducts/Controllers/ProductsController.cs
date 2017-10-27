@@ -37,6 +37,8 @@ namespace MariosSpecialtyProducts.Controllers
         {
             var thisProduct = productRepo.Products.Include(x => x.Reviews)
                                          .FirstOrDefault(x => x.ProductId == productId);
+
+
             return View(thisProduct);
         }
 
@@ -52,9 +54,13 @@ namespace MariosSpecialtyProducts.Controllers
 			if (ModelState.IsValid)
 			{
                 productRepo.Save(product);
-               
+                return RedirectToAction("Index");               
             }
-			return RedirectToAction("Index");
+            else 
+            {
+                return View("Error");    
+            }
+			
         }
 
         public IActionResult Edit(int productId)
@@ -70,8 +76,13 @@ namespace MariosSpecialtyProducts.Controllers
 			if (ModelState.IsValid)
 			{
                 productRepo.Edit(product);
+                return RedirectToAction("Details", new { productId = product.ProductId });
             }
-			return RedirectToAction("Details", new { productId = product.ProductId });
+            else 
+            {
+                return View("Error");
+            }
+			
 		}
 
         public IActionResult Delete(int productId)

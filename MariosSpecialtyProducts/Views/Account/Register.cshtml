@@ -5,32 +5,36 @@
     ViewData["Title"] = "Register";
 }
 
-
-
-<h2>Register a new user</h2>
+<h1 class="account-title">Register new admin</h1>
 <hr />
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
-{
-    <div class="card">
-        <div class="card-block">
-            <div class="form-group">
-                @Html.LabelFor(user => user.Email)
-                @Html.TextBoxFor(user=> user.Email, new { @class = "form-control"})
-                @Html.ValidationMessageFor(user=> user.Email, null, new { @class = "text-danger" })
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(user=> user.Password)
-                @Html.PasswordFor(user=> user.Password, new { @class = "form-control"})
-                @Html.ValidationMessageFor(user=> user.Password, null, new { @class = "text-danger" })
+<div class="well">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+		 <div class="form-group row">
+            <label class="col-md-3">Email:</label>
+            <div class="col-md-9">
+                @Html.TextBoxFor(user=> user.Email, new { @class = "form-control"})
+                    @Html.ValidationMessageFor(user=> user.Email, null, new { @class = "text-danger" })
             </div>
-            
-            <div class="form-group">
-                @Html.LabelFor(user=> user.ConfirmPassword)
-                @Html.PasswordFor(user=> user.ConfirmPassword, new { @class = "form-control"})
-                @Html.ValidationMessageFor(user=> user.ConfirmPassword, null, new { @class = "text-danger" })
-            </div>
-            <input type="submit" value="Register" />
         </div>
-    </div>
-}
+
+		 <div class="form-group row">
+            <label class="col-md-3">Password:</label>
+            <div class="col-md-9">
+                 @Html.PasswordFor(user=> user.Password, new { @class = "form-control"})
+                    @Html.ValidationMessageFor(user=> user.Password, null, new { @class = "text-danger" })
+            </div>
+        </div>
+
+		 <div class="form-group row">
+            <label class="col-md-3">Confirm Password:</label>
+            <div class="col-md-9">
+                  @Html.PasswordFor(user=> user.ConfirmPassword, new { @class = "form-control"})
+                    @Html.ValidationMessageFor(user=> user.ConfirmPassword, null, new { @class = "text-danger" })
+            </div>
+        </div>
+		<input type="submit" value="Register" />
+    }
+</div>
+	

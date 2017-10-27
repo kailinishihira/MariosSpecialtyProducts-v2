@@ -51,5 +51,6 @@ namespace MariosSpecialtyProducts.Models
         }
 
         public Review () {}
+
     }
 }

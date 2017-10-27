@@ -16,7 +16,8 @@
 <p class="back">@Html.ActionLink("Back to Products List", "Index")</p>
 
 <div class="well">
-    <h4>@Html.DisplayFor(model => model.Name)</h4>
+	<h3>@Html.DisplayFor(model => model.Name)</h3>
+	<h4>Average Rating: Stars</h4>
 	<p>Cost: $@Html.DisplayFor(model => model.Cost)</p>
     <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
 </div>
