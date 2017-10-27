@@ -42,5 +42,14 @@ namespace MariosSpecialtyProducts.Models
             return this.ReviewId.GetHashCode();
         }
 
+        public Review (string author, string contentBody, int rating, int productId)
+        {
+            this.Author = author;
+            this.ContentBody = contentBody;
+            this.Rating = rating;
+            this.ProductId = productId;
+        }
+
+        public Review () {}
     }
 }

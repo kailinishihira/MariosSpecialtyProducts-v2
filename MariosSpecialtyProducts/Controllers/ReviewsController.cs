@@ -13,7 +13,7 @@ namespace MariosSpecialtyProducts.Controllers
 {
     public class ReviewsController : Controller
     {
-        private IReviewRepository reviewRepo;
+		private IReviewRepository reviewRepo;
         public ReviewsController(IReviewRepository thisRepo = null)
         {
             if (thisRepo == null)
@@ -121,5 +121,6 @@ namespace MariosSpecialtyProducts.Controllers
                 return View();
             }
         }
+
     }
 }

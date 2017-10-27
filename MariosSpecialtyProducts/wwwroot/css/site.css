@@ -70,3 +70,6 @@ textarea {
     padding-bottom: 1%;
 }
 
+.hide-well {
+    display: none;
+}

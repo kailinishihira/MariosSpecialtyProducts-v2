@@ -8,7 +8,11 @@
     <h1 class="title">@Html.DisplayFor(model => model.Name) Details</h1>
 </div>
 
-<p class="crud">@Html.ActionLink("Edit", "Edit", new{ productId = Model.ProductId }) | @Html.ActionLink("Delete", "Delete", new{ productId = Model.ProductId })</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <p class="crud">@Html.ActionLink("Edit", "Edit", new{ productId = Model.ProductId }) | @Html.ActionLink("Delete", "Delete", new{ productId = Model.ProductId })</p>
+}
+
 <p class="back">@Html.ActionLink("Back to Products List", "Index")</p>
 
 <div class="well">
@@ -17,8 +21,36 @@
     <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
 </div>
 
+<!--<div class="add-review">Click here to add review</div>
+<div id="output2"></div>-->
+
+<h3>Add a Review</h3>
+<div class="well">
+    <form action="NewReview" class="new-review">
+        <input type="hidden" name="productId" value="@Model.ProductId" />
+        <div class="form-group">
+            <label for="rating">Rating: </label>
+            <input type="number" name="rating" min="1" max="5" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="contentBody">Review: </label>
+            <textarea class="form-control" name="contentBody" minlength="50" maxlength="250" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="author">Your name: </label>
+            <input type="text" name="author" class="form-control"/>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+
+
 <h3>Reviews</h3>
-<p>@Html.ActionLink("Add a review", "AddReview", "Reviews", new{productId = Model.ProductId })</p>
+
+<div class="well hide-well">
+    <div class="reviews" id="output"></div>
+</div>
+
 
     @foreach(var review in Model.Reviews)
     {
@@ -26,7 +58,11 @@
             <p class="reviews">Rating: @Html.DisplayFor(model => review.Rating) stars</p>
     	    <p>By: @Html.DisplayFor(model => review.Author)</p>
     	    <p>Review: @Html.DisplayFor(model => review.ContentBody)</p>
-	        <p>@Html.ActionLink("Edit", "Edit", "Reviews", new{ reviewId = review.ReviewId}) | @Html.ActionLink("Delete", "Delete", "Reviews", new{ reviewId = review.ReviewId})</p>
+
+	        @if (User.Identity.IsAuthenticated)
+	        {
+                <p>@Html.ActionLink("Edit", "Edit", "Reviews", new{ reviewId = review.ReviewId}) | @Html.ActionLink("Delete", "Delete", "Reviews", new{ reviewId = review.ReviewId})</p>
+            }
 	    </div>
     }
 

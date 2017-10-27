@@ -4,16 +4,19 @@
     ViewData["Title"] = "Delete Product";
 }
 
-<div class="banner">
-    <h1 class="title">Delete Product</h1>
-</div>
-
-<h4>Are you sure you want to delete @Html.DisplayFor(model => model.Name)?</h4>
-
-<p class="back">@Html.ActionLink("Back to Details", "Details", new{ productId = Model.ProductId})</p>
-
-@using (Html.BeginForm())
+@if (User.Identity.IsAuthenticated)
 {
-    @Html.HiddenFor(model => model.ProductId)
-    <input type="submit" value="Delete" class="btn btn-default" />
+    <div class="banner">
+        <h1 class="title">Delete Product</h1>
+    </div>
+
+    <h4>Are you sure you want to delete @Html.DisplayFor(model => model.Name)?</h4>
+
+    <p class="back">@Html.ActionLink("Back to Details", "Details", new{ productId = Model.ProductId})</p>
+
+    using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.ProductId)
+        <input type="submit" value="Delete" class="btn btn-default" />
+    }
 }

@@ -36,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="wwwroot\css\styles.css" />
+    <None Remove="Views\Products\DisplayReview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\banner1.svg" />
