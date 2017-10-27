@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using MariosSpecialtyProducts.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace MariosSpecialtyProducts
 {
@@ -34,6 +35,10 @@ namespace MariosSpecialtyProducts
                     .AddDbContext<MariosSpecialtyProductsContext>(options =>
                                               options
                                                    .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+
+			services.AddIdentity<ApplicationUser, IdentityRole>()
+				.AddEntityFrameworkStores<MariosSpecialtyProductsContext>()
+				.AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,13 +57,15 @@ namespace MariosSpecialtyProducts
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseStaticFiles();
+			app.UseIdentity();
+
+			app.UseStaticFiles();
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Index}/{id?}");
             });
 
             app.Run(async (context) =>

@@ -33,7 +33,21 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Products" asp-action="Index">Products</a></li>
-                </ul>
+
+                    @if (User.Identity.IsAuthenticated)
+					{
+                        <li><p class="navbar-text">Hello @User.Identity.Name!</p></li>
+					    using (Html.BeginForm("LogOff", "Account"))
+						{
+					        <li><input type="submit" class="btn btn-default" value="Log out" /></li>
+						}
+					}
+                    else
+					{
+						<li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
+						<li><a asp-area="" asp-controller="Account" asp-action="Register">Sign up</a></li>
+					}
+				</ul>
             </div>
         </div>
     </nav>

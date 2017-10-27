@@ -21,6 +21,7 @@
     <PackageReference Include="Moq" Version="4.7.142" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="1.1.2" />
 	<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
+	<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="1.1.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +31,8 @@
   <ItemGroup>
     <Folder Include="Views\Reviews\" />
     <Folder Include="Views\Products\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="wwwroot\css\styles.css" />
