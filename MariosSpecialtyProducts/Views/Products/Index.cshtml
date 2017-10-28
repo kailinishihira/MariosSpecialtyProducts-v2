@@ -14,6 +14,6 @@
     @foreach(var product in Model)
 	{   
         <div class="well">
-	        <h4 class="product">@Html.ActionLink((string)product.Name, "Details", new{ productId = product.ProductId}, new{ @id="products-list"})</h4>
+	        <h4 class="product">@Html.ActionLink((string)product.Name, "Details", new{ productId = product.ProductId}, new{ @class="products-list"})</h4>
         </div>
 	}

@@ -65,7 +65,8 @@ textarea {
 }
 
 .well {
-    background-color: #E9E3D8;
+    background-color: #ffffff;
+    border: solid 2px #613733;
 }
 
 .add {
@@ -84,4 +85,44 @@ textarea {
 
 .logout-button {
     float: right;
+}
+
+.product-details {
+    margin-left: 4%;
+}
+
+.product {
+    letter-spacing: 10px;
+    font-size: 25px;
+    text-align: center;
+    color: #613733;
+}
+
+.products-list {
+    color: #613733;
+}
+
+.products-list:hover {
+    color: #E9E3D8;
+    text-decoration: none;
+}
+
+.btn {
+    background-color: #E9E3D8;
+}
+
+.home-title{
+    margin-top: 8%;
+    margin-bottom: 1%;
+    font-size: 35px;
+    letter-spacing: 5px;
+    text-align: center;
+}
+
+.featured-products {
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    letter-spacing: 5px;
+    font-size: 30px;
 }

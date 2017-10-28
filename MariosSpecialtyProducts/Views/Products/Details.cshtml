@@ -16,11 +16,14 @@
 <p class="back">@Html.ActionLink("Back to Products List", "Index")</p>
 
 <div class="well">
-	<h3>@Html.DisplayFor(model => model.Name)</h3>
-	<h4>Average Rating: Stars</h4>
-	<p>Cost: $@Html.DisplayFor(model => model.Cost)</p>
-    <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
+	<div class="product-details">
+        <h3>@Html.DisplayFor(model => model.Name)</h3>
+        <h4>Average Rating: Stars</h4>
+        <p>Cost: $@Html.DisplayFor(model => model.Cost)</p>
+        <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
+    </div>
 </div>
+
 
 <!--<div class="add-review">Click here to add review</div>
 <div id="output2"></div>-->
