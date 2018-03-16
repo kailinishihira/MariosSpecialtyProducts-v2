@@ -2,7 +2,7 @@
 
 ### Kaili Nishihira
 
-#### _Web app for Mario's Specialty Food Products, 10.27.17_
+#### _A mock Website for Mario's Specialty Food Products, 10.27.17_
 
 
 ## Description
