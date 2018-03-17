@@ -26,6 +26,7 @@ _Styling inspired by [Eataly](https://www.eataly.com/)._
 * _Download and install [MAMP](https://www.mamp.info/en/)_
 * _Download and install [Visual Studio 2017](https://www.visualstudio.com/)_
 * _Clone repository_
+* _Set MySQL Port to 3306 in MAMP_
 
 ### Setup/Installation for Database
 * In your terminal, navigate from the Solution folder to the project folder, MariosSpecialtyProducts
