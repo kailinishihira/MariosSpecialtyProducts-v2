@@ -16,21 +16,21 @@
 	     <div class="form-group row">
             <label class="col-md-3">Product to Review:</label>
             <div class="col-md-9">
-                @Html.DropDownList("ProductId")
+                @Html.DropDownList("ProductId", (IEnumerable<SelectListItem>)ViewBag.ProductId, "--Select Product--", new {@class="form-control"})
             </div>
         </div>
-	
+
         <div class="form-group row">
-            <label class="col-md-3">Rating (1 - 5):</label>
+            <label class="col-md-3">Star Rating (1 - 5):</label>
             <div class="col-md-9">
-                @Html.TextBoxFor(model => model.Rating, new {@class="form-control"})
+                @Html.TextBoxFor(model => model.Rating, new { @class = "form-control" })
             </div>
         </div>
-    
+
         <div class="form-group row">
             <label class="col-md-3">Review:</label>
             <div class="col-md-9">
-                @Html.TextAreaFor(model => model.ContentBody, new {rows="10", cols="95"})
+                @Html.TextAreaFor(model => model.ContentBody, new { @class="form-control", rows = "10" })
             </div>
         </div>
     

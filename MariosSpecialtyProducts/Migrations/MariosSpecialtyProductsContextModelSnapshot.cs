@@ -71,8 +71,7 @@ namespace MariosSpecialtyProducts.Migrations
                     b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Cost")
-                        .IsRequired();
+                    b.Property<double>("Cost");
 
                     b.Property<string>("CountryOfOrigin")
                         .IsRequired();

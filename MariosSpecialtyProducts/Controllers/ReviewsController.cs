@@ -93,9 +93,12 @@ namespace MariosSpecialtyProducts.Controllers
 			if (ModelState.IsValid)
 			{
                 reviewRepo.Edit(review);
+                return RedirectToAction("Details", "Products", new { productId = review.ProductId });
             }
-
-            return RedirectToAction("Details", "Products", new { productId = review.ProductId});
+            else
+            {
+                return View(review);
+            }            
 		}
 
         public IActionResult Delete(int reviewId)

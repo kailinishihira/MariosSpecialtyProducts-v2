@@ -9,13 +9,16 @@ namespace MariosSpecialtyProducts.Models
     {
         [Key]
         public int ReviewId { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Your name is required.")]
         public string Author { get; set; }
+
         [Required]
-        [StringLength(250, MinimumLength = 50, ErrorMessage = "Invalid")]
+        [StringLength(250, MinimumLength = 50, ErrorMessage = "Invalid: 50-250 characters required.")]
         public string ContentBody { get; set; }
-        [Required]
-        [Range(1,5)]
+
+        [Required(ErrorMessage = "Your rating is required.")]
+        [Range(1, 5)]
         public int Rating { get; set; }
 
         [Required]

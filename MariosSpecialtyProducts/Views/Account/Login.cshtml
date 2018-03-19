@@ -15,6 +15,7 @@
             <label class="col-md-3">Email:</label>
             <div class="col-md-9">
                 @Html.TextBoxFor(m => m.Email, new{@class="form-control"})
+                @Html.ValidationMessageFor(user => user.Email, null, new { @class = "text-danger" })
             </div>
 	    </div>
 
@@ -22,6 +23,7 @@
             <label class="col-md-3">Password:</label>
             <div class="col-md-9">
                 @Html.PasswordFor(m => m.Password, new{@class="form-control"})
+                @Html.ValidationMessageFor(user => user.Password, null, new { @class = "text-danger" })
             </div>
         </div>
 

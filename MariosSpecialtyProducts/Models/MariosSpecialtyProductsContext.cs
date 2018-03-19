@@ -11,7 +11,7 @@ namespace MariosSpecialtyProducts.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder
-                .UseMySql(@"Server=localhost;Port=8889;database=MariosSpecialtyProducts;uid=root;pwd=root;");
+                .UseMySql(@"Server=localhost;Port=3306;database=mariosspecialtyproducts;uid=root;pwd=root;");
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{			

@@ -11,7 +11,7 @@ namespace MariosSpecialtyProductsTests.Models
 
 		protected override void OnConfiguring(DbContextOptionsBuilder options)
 		{
-			options.UseMySql(@"Server=localhost;Port=8889;database=MariosSpecialtyProducts_tests;uid=root;pwd=root;");
+			options.UseMySql(@"Server=localhost;Port=3306;database=mariosspecialtyproducts_tests;uid=root;pwd=root;");
 		}
     }
 }

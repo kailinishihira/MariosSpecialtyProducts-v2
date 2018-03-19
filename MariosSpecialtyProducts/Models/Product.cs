@@ -7,14 +7,18 @@ namespace MariosSpecialtyProducts.Models
 {
     [Table("Products")]
     public class Product
-    {
+    {   
         [Key]
         public int ProductId { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Please enter the product's name.")]
         public string Name { get; set; }
+
         [Required]
-        public string Cost { get; set; }
-        [Required]
+        [DisplayFormat(DataFormatString = "{0:c}")]
+        public double Cost { get; set; }
+
+        [Required(ErrorMessage = "Please enter the product's country of origin.")]
         public string CountryOfOrigin { get; set; }
 
         public virtual ICollection<Review> Reviews { get; set; }

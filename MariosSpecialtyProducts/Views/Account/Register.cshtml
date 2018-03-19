@@ -5,17 +5,17 @@
     ViewData["Title"] = "Register";
 }
 
-<h1 class="account-title">Register new admin</h1>
+<h1 class="account-title">Register new administrator</h1>
 <hr />
 
 <div class="well">
     @using (Html.BeginForm("Register", "Account", FormMethod.Post))
     {
-		 <div class="form-group row">
+        <div class="form-group row">
             <label class="col-md-3">Email:</label>
             <div class="col-md-9">
                 @Html.TextBoxFor(user=> user.Email, new { @class = "form-control"})
-                    @Html.ValidationMessageFor(user=> user.Email, null, new { @class = "text-danger" })
+                @Html.ValidationMessageFor(user=> user.Email, null, new { @class = "text-danger" })
             </div>
         </div>
 
@@ -23,7 +23,7 @@
             <label class="col-md-3">Password:</label>
             <div class="col-md-9">
                  @Html.PasswordFor(user=> user.Password, new { @class = "form-control"})
-                    @Html.ValidationMessageFor(user=> user.Password, null, new { @class = "text-danger" })
+                 @Html.ValidationMessageFor(user=> user.Password, null, new { @class = "text-danger" })
             </div>
         </div>
 
@@ -31,7 +31,7 @@
             <label class="col-md-3">Confirm Password:</label>
             <div class="col-md-9">
                   @Html.PasswordFor(user=> user.ConfirmPassword, new { @class = "form-control"})
-                    @Html.ValidationMessageFor(user=> user.ConfirmPassword, null, new { @class = "text-danger" })
+                  @Html.ValidationMessageFor(user=> user.ConfirmPassword, null, new { @class = "text-danger" })
             </div>
         </div>
 		<input type="submit" value="Register" class="btn btn-default"/>

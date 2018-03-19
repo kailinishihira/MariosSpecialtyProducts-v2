@@ -56,6 +56,7 @@ namespace MariosSpecialtyProducts.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager
@@ -66,8 +67,8 @@ namespace MariosSpecialtyProducts.Controllers
             }
             else
             {
-                return View("Error");
-            }
+                return View();
+            }            
         }
 
         [HttpPost]

@@ -19,21 +19,17 @@
 	<div class="product-details">
         <h3>@Html.DisplayFor(model => model.Name)</h3>
         <h4>Average Rating: Stars</h4>
-        <p>Cost: $@Html.DisplayFor(model => model.Cost)</p>
+        <p>Cost: @Html.DisplayFor(model => model.Cost)</p>
         <p>Country of Origin: @Html.DisplayFor(model => model.CountryOfOrigin)</p>
     </div>
 </div>
-
-
-<!--<div class="add-review">Click here to add review</div>
-<div id="output2"></div>-->
 
 <h3>Add a Review</h3>
 <div class="well">
     <form action="NewReview" class="new-review">
         <input type="hidden" name="productId" value="@Model.ProductId" />
         <div class="form-group">
-            <label for="rating">Rating: </label>
+            <label for="rating">Star Rating: </label>
             <input type="number" name="rating" min="1" max="5" class="form-control"/>
         </div>
         <div class="form-group">
@@ -42,7 +38,7 @@
         </div>
         <div class="form-group">
             <label for="author">Your name: </label>
-            <input type="text" name="author" class="form-control"/>
+            <input type="text" name="author" minLength="1" class="form-control"/>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
@@ -59,7 +55,7 @@
     @foreach(var review in Model.Reviews)
     {
         <div class="well">
-            <p class="reviews">Rating: @Html.DisplayFor(model => review.Rating) stars</p>
+            <p class="reviews">Star Rating: @Html.DisplayFor(model => review.Rating) stars</p>
     	    <p>By: @Html.DisplayFor(model => review.Author)</p>
     	    <p>Review: @Html.DisplayFor(model => review.ContentBody)</p>
 

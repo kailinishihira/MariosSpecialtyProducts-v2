@@ -16,16 +16,18 @@
         @Html.HiddenFor(model => model.ProductId)
         <div class="well">
             <div class="form-group row">
-                <label class="col-md-3">Rating (1 - 5):</label>
+                <label class="col-md-3">Star Rating:</label>
                 <div class="col-md-9">
-                    @Html.TextBoxFor(model => model.Rating, new {@class="form-control"})
+                    @Html.TextBoxFor(model => model.Rating, new { @class = "form-control", placeholder = "1 - 5", type = "number", min = "1", max = "5" })
+                    @Html.ValidationMessageFor(model => model.Rating, null, new { @class = "text-danger" })
                 </div>
             </div>
         
             <div class="form-group row">
                 <label class="col-md-3">Review:</label>
                 <div class="col-md-9">
-                    @Html.TextAreaFor(model => model.ContentBody, new {rows="10", cols="95"})
+                    @Html.TextAreaFor(model => model.ContentBody, new { @class = "form-control", rows = "10", placeholder = "50-250 characters required" })
+                    @Html.ValidationMessageFor(model => model.ContentBody, null, new { @class = "text-danger" })
                 </div>
             </div>
         
@@ -33,6 +35,7 @@
                 <label class="col-md-3">Your Name: </label>
                 <div class="col-md-9">
                     @Html.TextBoxFor(model => model.Author, new {@class="form-control"})
+                    @Html.ValidationMessageFor(model => model.Author, null, new { @class = "text-danger" })
                 </div>
             </div>
         

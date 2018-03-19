@@ -12,7 +12,6 @@ namespace MariosSpecialtyProducts.Controllers
     public class ProductsController : Controller
     {
 		private MariosSpecialtyProductsContext db = new MariosSpecialtyProductsContext();
-
 		private IProductRepository productRepo;
         public ProductsController(IProductRepository thisRepo = null)
         {
@@ -27,18 +26,23 @@ namespace MariosSpecialtyProducts.Controllers
             }
         }
 
-            public IActionResult Index()
+        public IActionResult Index()
         {
-            var productList = productRepo.Products.ToList();
-            return View(productList);
+            if(productRepo.Products.Count() == 0)
+            {
+                return RedirectToAction("Create");
+            }
+            else
+            {
+                var productList = productRepo.Products.ToList();
+                return View(productList);
+            }            
         }
 
         public IActionResult Details(int productId)
         {
             var thisProduct = productRepo.Products.Include(x => x.Reviews)
                                          .FirstOrDefault(x => x.ProductId == productId);
-
-
             return View(thisProduct);
         }
 
@@ -58,7 +62,7 @@ namespace MariosSpecialtyProducts.Controllers
             }
             else 
             {
-                return View("Error");    
+                return View();    
             }
 			
         }
@@ -80,7 +84,7 @@ namespace MariosSpecialtyProducts.Controllers
             }
             else 
             {
-                return View("Error");
+                return View(product);
             }
 			
 		}
@@ -115,11 +119,5 @@ namespace MariosSpecialtyProducts.Controllers
     		db.SaveChanges();
     		return Json(newReview);		
 		}
-
-		//[HttpGet]
-		//public IActionResult AddReview()
-        //{
-        //    return View();
-        //}
     }
 }

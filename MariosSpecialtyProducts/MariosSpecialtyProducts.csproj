@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Migrations\" />
     <Folder Include="Views\Reviews\" />
     <Folder Include="Views\Products\" />
     <Folder Include="ViewModels\" />
@@ -36,7 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="wwwroot\css\styles.css" />
-    <None Remove="Views\Products\DisplayReview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\banner1.svg" />
